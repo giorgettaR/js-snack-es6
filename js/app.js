@@ -121,3 +121,119 @@ console.log(studentsVoteOver70IdOver120)
 // 196  Luigi Grimaldello 	  68
 // 102  Piero della Francesca   50
 // 120  Francesca da Polenta    84
+
+
+// SNACK 3
+// Creare un array di oggetti:
+// Ogni oggetto descriverà una bici da corsa con le seguenti proprietà: nome e peso.
+// Stampare in console la bici con peso minore utilizzando destructuring e template literal
+
+const bicycles = [
+    {
+        name: 'Rouge',
+        weight: 7.8,
+    },
+    {
+        name: 'Mine',
+        weight: 5,
+    },
+    {
+        name: 'Oltre',
+        weight: 6.7,
+    },
+    {
+        name: 'Ponte',
+        weight: 6.8,
+    },
+    {
+        name: 'Nein',
+        weight: 8,
+    },
+    {
+        name: 'Rock',
+        weight: 5.6,
+    }
+]
+
+// const [lighterBicycle] = bicycles
+// console.log(lighterBicycle)
+
+let lighterBicycle = bicycles[0]
+
+for (let i = 0; i < bicycles.length; i++) {
+    let currentBicycle = bicycles[i];
+    if (currentBicycle.weight < lighterBicycle.weight) {
+        lighterBicycle = currentBicycle
+    }
+}
+
+console.log(lighterBicycle)
+
+
+// SNACK 4
+// Creare un array di oggetti di squadre di calcio.
+// Ogni squadra avrà diverse proprietà: nome, punti fatti, falli subiti.
+// Nome sarà l’unica proprietà da compilare, le altre saranno tutte settate a 0.
+// Generare numeri random al posto degli 0 nelle proprietà: punti fatti e falli subiti.
+// Infine usando la destrutturazione creiamo un nuovo array i cui elementi contengono solo nomi e falli subiti e stampiamo tutto in console.
+
+function getPf() {
+    return Pf = Math.floor(Math.random() * 100) + 50
+}
+
+function getFs() {
+    return Math.floor(Math.random() * 300) + 150
+}
+
+teams = [
+    {
+        name: 'Milan',
+        pf:  getPf(),
+        fs: getFs(),
+    },
+    {
+        name: 'Inter',
+        pf: getPf(),
+        fs: getFs(),
+    },
+    {
+        name: 'Napoli',
+        pf: getPf(),
+        fs: getFs(),
+    },
+    {
+        name: 'Roma',
+        pf: getPf(),
+        fs: getFs(),
+    },
+    {
+        name: 'Juventus',
+        pf: getPf(),
+        fs: getFs(),
+    }
+]
+
+let teamsShort = [];
+
+for (let i = 0; i < teams.length; i++) {
+    let currentTeam = teams[i]
+    let teamShort = {
+        name: currentTeam.name,
+        pf: currentTeam.pf,
+    }
+    teamsShort.push(teamShort)
+}
+
+console.log(teamsShort)
+
+
+
+
+// si, non ho assolutamente capito come usare decostructing e template literal in questi snack
+
+
+
+
+
+// BONUS
+// Stampare in pagina oltre che in console!
