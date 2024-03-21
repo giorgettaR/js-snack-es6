@@ -155,20 +155,35 @@ const bicycles = [
     }
 ]
 
-// const [lighterBicycle] = bicycles
-// console.log(lighterBicycle)
-
 let lighterBicycle = bicycles[0]
 
-for (let i = 0; i < bicycles.length; i++) {
+for (let i = 1; i < bicycles.length; i++) {
     let currentBicycle = bicycles[i];
     if (currentBicycle.weight < lighterBicycle.weight) {
         lighterBicycle = currentBicycle
     }
 }
 
-console.log(lighterBicycle)
+console.log(lighterBicycle);
 
+const {weight, name} = lighterBicycle;
+
+console.log(`La bici ${name} è la più leggera e pesa ${weight} kg`)
+
+//  oppure
+
+const sortedBicycles = bicycles.toSorted((bike1, bike2) => {
+    return bike1.weight - bike2.weight
+    // if (bike1.weight < bike2.weight) {
+    //     return -1
+    // } else if (bike1.weight > bike2.weight) {
+    //     return 1
+    // } else {
+    //     return 0
+    // }
+})
+
+console.log(sortedBicycles[0])
 
 // SNACK 4
 // Creare un array di oggetti di squadre di calcio.
@@ -178,7 +193,7 @@ console.log(lighterBicycle)
 // Infine usando la destrutturazione creiamo un nuovo array i cui elementi contengono solo nomi e falli subiti e stampiamo tutto in console.
 
 function getPf() {
-    return Pf = Math.floor(Math.random() * 100) + 50
+    return Math.floor(Math.random() * 100) + 50
 }
 
 function getFs() {
@@ -188,30 +203,46 @@ function getFs() {
 teams = [
     {
         name: 'Milan',
-        pf:  getPf(),
-        fs: getFs(),
+        pf:  0,
+        fs: 0,
     },
     {
         name: 'Inter',
-        pf: getPf(),
-        fs: getFs(),
+        pf: 0,
+        fs: 0,
     },
     {
         name: 'Napoli',
-        pf: getPf(),
-        fs: getFs(),
+        pf: 0,
+        fs: 0,
     },
     {
         name: 'Roma',
-        pf: getPf(),
-        fs: getFs(),
+        pf: 0,
+        fs: 0,
     },
     {
         name: 'Juventus',
-        pf: getPf(),
-        fs: getFs(),
+        pf: 0,
+        fs: 0,
     }
 ]
+
+teams.forEach((team) => {
+    team.pf = getPf();
+    team.fs = getFs()
+})
+
+// const message = teams.map((team) => {
+//     const {name, fs} = team
+//     return `La squadra ${name} ha subito ${fs} falli durante il campionato`
+// })
+
+const message = teams.map(({name, fs}) => {
+        return `La squadra ${name} ha subito ${fs} falli durante il campionato`
+    })
+
+console.log(message)
 
 let teamsShort = [];
 
@@ -225,15 +256,3 @@ for (let i = 0; i < teams.length; i++) {
 }
 
 console.log(teamsShort)
-
-
-
-
-// si, non ho assolutamente capito come usare decostructing e template literal in questi snack
-
-
-
-
-
-// BONUS
-// Stampare in pagina oltre che in console!
